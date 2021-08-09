@@ -1,0 +1,22 @@
+.lastPlayerPickedContainer {
+  border: 0px;
+  overflow: auto;
+  height: 500px;
+  border-radius: 20px;
+}
+
+.playerPickedPlaceholderCard {
+  border-radius: 20px;
+  border: 0px;
+}
+
+.playerPickedPlaceholderInfo {
+  font-size: 24px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+}
+.playerPickedPlaceholderRow {
+  height: 400px;
+  width: 100%;
+}

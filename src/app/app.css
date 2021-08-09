@@ -1,0 +1,10 @@
+@import '~antd/dist/antd.css';
+.nation-icon {
+  font-size: 42px;
+  margin-top: 12px;
+}
+
+.nation-icon-small {
+    font-size: 36px;
+  }
+  

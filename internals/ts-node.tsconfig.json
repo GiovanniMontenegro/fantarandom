@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
