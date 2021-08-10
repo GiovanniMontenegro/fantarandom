@@ -25,7 +25,7 @@ export function PlayerRandomCard(props: Props) {
           <Button
             size="large"
             onClick={props.onRandomize}
-            className="btn-choose-player"
+            //className="btn-choose-player"
             type="primary"
             style={{ marginTop: 25 }}
           >
