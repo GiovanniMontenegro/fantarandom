@@ -5,10 +5,11 @@
  */
 import { SearchOutlined } from '@ant-design/icons';
 import { Button, Input, Space, Table } from 'antd';
-import { IPlayer } from 'app/pages/Players/interface/player.interface';
-import { getNationsClassnameSmall } from 'app/pages/Players/utils/nations';
+import { IPlayer } from 'app/interfaces/common.interface';
+
 import React from 'react';
 import Highlighter from 'react-highlight-words';
+import { getNationsClassnameSmall } from 'utils/nations';
 
 interface Props {
   dataSource: IPlayer[];

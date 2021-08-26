@@ -1,9 +1,4 @@
-import { Action } from '@reduxjs/toolkit';
-import { call, put, takeLatest } from 'redux-saga/effects';
-import { requestNoJson } from 'utils/request';
-import { playersActions as actions } from '.';
-import { mappingPlayersData } from '../utils/players.data';
-
+/*
 function* getPlayers(sagaAction: Action) {
   try {
     yield put(actions.setLoading(sagaAction.type));
@@ -21,8 +16,8 @@ function* getPlayers(sagaAction: Action) {
     );
   }
   yield put(actions.removeLoading(sagaAction.type));
-}
+}*/
 
 export function* playersSaga() {
-  yield takeLatest(actions.loadPlayers.type, getPlayers);
+  //yield takeLatest(actions.loadPlayers.type, getPlayers);
 }

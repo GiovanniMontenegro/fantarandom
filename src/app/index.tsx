@@ -12,10 +12,13 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Route, Router, Switch } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
-import './styles/app.less';
-import { MyLayout } from './components/Layout';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import { LandingPage } from './pages/LandingPage/Loadable';
+import { LayoutContainer } from './pages/LayoutContainer';
 import { Players } from './pages/Players/Loadable';
+import { Randomizer } from './pages/Randomizer/Loadable';
+import { Teams } from './pages/Teams/Loadable';
+import './styles/app.less';
 
 export const isElectron = () => {
   const userAgent = navigator.userAgent.toLowerCase();
@@ -38,9 +41,21 @@ export function App() {
       >
         <meta name="description" content="A FantaRandom application" />
       </Helmet>
-
       <Switch>
-        <RouteWrapper exact path="/" component={Players} />
+        <RouteWrapper
+          exact
+          path="/"
+          component={LandingPage}
+          withLayout={false}
+        />
+        <RouteWrapper exact path="/players" component={Players} withLayout />
+        <RouteWrapper exact path="/teams" component={Teams} withLayout />
+        <RouteWrapper
+          exact
+          path="/randomizer"
+          component={Randomizer}
+          withLayout
+        />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
@@ -48,14 +63,14 @@ export function App() {
   );
 }
 
-const RouteWrapper = ({ component: Component, ...rest }) => {
+const RouteWrapper = ({ component: Component, withLayout, ...rest }) => {
   return (
     <Route
       {...rest}
       render={props => (
-        <MyLayout {...props}>
+        <LayoutContainer withLayout={withLayout} {...props}>
           <Component {...props} />
-        </MyLayout>
+        </LayoutContainer>
       )}
     />
   );

@@ -1,5 +1,7 @@
 import { Button, Col, Row } from 'antd';
-import { IPlayer, ITab } from 'app/pages/Players/interface/player.interface';
+import { IPlayer } from 'app/interfaces/common.interface';
+import { ITab } from 'app/pages/Players/interface/player.interface';
+
 import React from 'react';
 import { PlayerCard } from './PlayerCard';
 import { PlayerCardPlaceholder } from './PlayerCardPlaceholder';

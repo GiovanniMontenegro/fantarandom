@@ -11,12 +11,13 @@
 import { WifiOutlined } from '@ant-design/icons';
 import { Col, Layout, Row, Tooltip } from 'antd';
 import * as React from 'react';
-import './layout.css';
+import { useLayoutContainerSlice } from './slice';
 
 const { Header, Content } = Layout;
 
 interface Props {
   children: React.ReactNode;
+  withLayout?: boolean;
 }
 
 export function LayoutContainer(props: Props) {
@@ -33,8 +34,12 @@ export function LayoutContainer(props: Props) {
       history.push(e.key);
     }
   };*/
+  const { actions } = useLayoutContainerSlice();
+
   const color = `${navigator.onLine ? '#85dcba' : '#e27d60'}`;
-  return (
+  return !props.withLayout ? (
+    <>{props.children}</>
+  ) : (
     <Layout>
       <Header style={{ background: "url('campoVerde.jpg')" }}>
         <Row justify="space-between">

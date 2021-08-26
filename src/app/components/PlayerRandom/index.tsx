@@ -1,9 +1,7 @@
 import { Row } from 'antd';
-import {
-  IPlayer,
-  ITab,
-  PlayerRole,
-} from 'app/pages/Players/interface/player.interface';
+import { PlayerRole, IPlayer } from 'app/interfaces/common.interface';
+import { ITab } from 'app/pages/Players/interface/player.interface';
+
 import { playersActions } from 'app/pages/Players/slice';
 import React from 'react';
 import { useDispatch } from 'react-redux';

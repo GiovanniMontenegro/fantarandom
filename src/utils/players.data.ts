@@ -1,5 +1,5 @@
+import { IPlayer } from 'app/interfaces/common.interface';
 import csv from 'csvtojson';
-import { IPlayer } from '../interface/player.interface';
 const extractPlayersData = async data => {
   let extractedData: any[] = [];
   extractedData = await csv({

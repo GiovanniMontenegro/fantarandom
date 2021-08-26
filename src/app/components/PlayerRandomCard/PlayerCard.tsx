@@ -1,7 +1,7 @@
 import { Card, Col, Row } from 'antd';
-import { IPlayer } from 'app/pages/Players/interface/player.interface';
-import { getNationsClassname } from 'app/pages/Players/utils/nations';
+import { IPlayer } from 'app/interfaces/common.interface';
 import React from 'react';
+import { getNationsClassname } from 'utils/nations';
 
 interface Props {
   player: IPlayer;

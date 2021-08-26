@@ -1,5 +1,6 @@
 import { Card, Col, Row } from 'antd';
-import { IPlayer } from 'app/pages/Players/interface/player.interface';
+import { IPlayer } from 'app/interfaces/common.interface';
+
 import * as React from 'react';
 
 interface Props {

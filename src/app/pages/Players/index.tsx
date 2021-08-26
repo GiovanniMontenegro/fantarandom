@@ -7,21 +7,20 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Button, Col, Row, Tabs } from 'antd';
 import { PlayerRandom } from 'app/components/PlayerRandom';
 import { PlayerTable } from 'app/components/PlayerTable';
+import { PlayerRole } from 'app/interfaces/common.interface';
 import 'flag-icon-css/css/flag-icon.min.css';
 import React, { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { PlayerRole } from './interface/player.interface';
-import './players.css';
-import { usePlayersSlice } from './slice';
 import {
   selectAttackers,
   selectDefenders,
   selectKeepers,
   selectMidfilders,
-  selectPickedPlayers,
-  selectSelectedTab,
-} from './slice/selectors';
+} from '../LayoutContainer/slice/selectors';
+import './players.css';
+import { usePlayersSlice } from './slice';
+import { selectPickedPlayers, selectSelectedTab } from './slice/selectors';
 import { PlayerTabs } from './slice/types';
 
 interface Props {}
@@ -70,13 +69,13 @@ export const Players = memo((props: Props) => {
 
   useEffect(() => {
     dispatch(actions.setSelectedTab(tabs[0]));
-    loadPlayers();
+    //loadPlayers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const loadPlayers = () => {
+  /* const loadPlayers = () => {
     dispatch(actions.loadPlayers());
-  };
+  };*/
 
   const onChangeTab = key => {
     const selectedTab = tabs.filter(tab => tab.id === key);
