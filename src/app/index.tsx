@@ -12,7 +12,7 @@ import { Helmet } from 'react-helmet-async';
 import { useTranslation } from 'react-i18next';
 import { Route, Router, Switch } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
-import './app.css';
+import './styles/app.less';
 import { MyLayout } from './components/Layout';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { Players } from './pages/Players/Loadable';

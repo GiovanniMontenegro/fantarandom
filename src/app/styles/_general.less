@@ -1,0 +1,67 @@
+.nation-icon {
+  font-size: 42px;
+  margin-top: 12px;
+}
+
+.nation-icon-small {
+  font-size: 36px;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: @primary-color;
+  text-shadow: 0 0 0.25px currentColor;
+}
+
+.ant-tabs-ink-bar {
+  position: absolute;
+  background: @primary-color;
+  pointer-events: none;
+}
+.ant-tabs-tab :hover {
+  color: @primary-color;
+}
+html {
+  --antd-wave-shadow-color: @primary-color;
+}
+
+.ant-pagination-item {
+  &-active {
+    border-color: @primary-color;
+    > a {
+      color: @primary-color;
+    }
+  }
+  &:hover {
+    > a {
+      color: @primary-color;
+    }
+  }
+}
+
+.ant-pagination-prev:focus-visible .ant-pagination-item-link,
+.ant-pagination-next:focus-visible .ant-pagination-item-link,
+.ant-pagination-prev:hover .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link {
+  color: @primary-color;
+  border-color: @primary-color;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: @primary-color;
+  border-right-width: 1px !important;
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  border-color: @primary-color;
+  border-right-width: 1px !important;
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(23, 125, 220, 0.2);
+}
+
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  color: #00000090;
+  background: @primary-color;
+  border-color: @primary-color;
+}

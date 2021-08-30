@@ -69,10 +69,26 @@ export const Players = memo((props: Props) => {
   ];
 
   useEffect(() => {
-    dispatch(actions.setSelectedTab(tabs[0]));
     loadPlayers();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (selectedTab.dataSource && selectedTab.dataSource.length !== 0) {
+      const index = tabs.findIndex(tab => tab.id === selectedTab.id);
+      dispatch(actions.setSelectedTab(tabs[index]));
+    }
+  }, [keepers, defenders, midfielders, attackers]);
+
+  useEffect(() => {
+    if (
+      selectedTab.id === PlayerTabs.keeper &&
+      selectedTab.dataSource &&
+      selectedTab.dataSource.length === 0
+    ) {
+      dispatch(actions.setSelectedTab(tabs[0]));
+    }
+  }, [keepers]);
 
   const loadPlayers = () => {
     dispatch(actions.loadPlayers());

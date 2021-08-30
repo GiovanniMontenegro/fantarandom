@@ -6,7 +6,6 @@
 import { Col } from 'antd';
 import { IPlayer } from 'app/pages/Players/interface/player.interface';
 import * as React from 'react';
-import './lastPlayerPicked.css';
 import { PlayerPicked } from './PlayerPicked';
 import { PlayerPickedPlaceholder } from './PlayerPickedPlaceholder';
 
@@ -28,13 +27,8 @@ export function LastPlayerPicked(props: Props) {
   };
 
   return (
-    <Col xs={11} offset={1}>
-      <div
-        className={'lastPlayerPickedContainer'}
-        style={{ background: "url('campoVerde.jpg')" }}
-      >
-        {generateLastPlayerPicked()}
-      </div>
-    </Col>
+    <div className={'lastPlayerPickedContainer'}>
+      {generateLastPlayerPicked()}
+    </div>
   );
 }

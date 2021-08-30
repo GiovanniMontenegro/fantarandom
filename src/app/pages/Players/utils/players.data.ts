@@ -23,17 +23,22 @@ export const mappingPlayersData = async (
 ): Promise<{ [key: string]: IPlayer[] }> => {
   const extractedData = await extractPlayersData(data);
   console.log('extractedData: ', extractedData);
-  const players = extractedData.map(player => ({
-    id: player[0],
-    name: player[1],
-    role: player[3],
-    team: player[9],
-    bornYear: player[14],
-    favoriteFoot: player[12],
-    nation: mappingNations(player[13]),
-    actualQuotation: player[6],
-    initialQuotation: player[5],
-  }));
+  const players = extractedData
+    .map(player => ({
+      id: player[0],
+      name: player[1],
+      role: player[3],
+      team: player[9],
+      bornYear: player[14],
+      favoriteFoot: player[12],
+      nation: mappingNations(player[13]),
+      actualQuotation: player[6],
+      initialQuotation: player[5],
+      urlPlayerImage: player[15],
+      visible: player[16],
+    }))
+    .filter(player => player.visible === '0');
+  console.log('players: ', players);
 
   const reducedPlayers: { [key: string]: IPlayer[] } = {
     players,

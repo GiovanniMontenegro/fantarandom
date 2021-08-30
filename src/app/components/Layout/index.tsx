@@ -84,7 +84,6 @@ export function MyLayout(props: Props) {
         style={{
           width: '100%',
           height: 'calc(100vh - 64px)',
-          backgroundColor: '#fff',
         }}
       >
         <Layout className="site-layout-background">

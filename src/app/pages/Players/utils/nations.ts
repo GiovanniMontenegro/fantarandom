@@ -40,7 +40,7 @@ const nationMapping = {
   CAN: 'Canada',
   CCK: 'Cocos (keeling) Isole',
   CHE: 'Svizzera',
-  CHL: 'Chile',
+  CHL: 'Cile',
   CHN: 'Cina',
   CIV: "Costa d'Avorio",
   CMR: 'Camerun',
@@ -65,6 +65,7 @@ const nationMapping = {
   DZA: 'Algeria',
   ECU: 'Ecuador',
   EGY: 'Egitto',
+  ENG: 'Inghilterra',
   ERI: "l'Eritrea",
   ESH: 'Sahara occidentale',
   ESP: 'Spagna',
@@ -140,7 +141,7 @@ const nationMapping = {
   MDV: 'Maldive',
   MEX: 'Messico',
   MHL: 'Isole Marshall',
-  MKD: 'Macedonia, ex Repubblica Jugoslava di',
+  MKD: 'Macedonia del Nord',
   MLI: 'Mali',
   MLT: 'Malta',
   MMR: 'Myanmar',
@@ -185,7 +186,7 @@ const nationMapping = {
   QAT: 'Qatar',
   REU: 'Riunione',
   ROU: 'Romania',
-  RUS: 'Federazione Russa',
+  RUS: 'Russia',
   RWA: 'Ruanda',
   SAU: 'Arabia Saudita',
   SDN: 'Sudan',
@@ -240,9 +241,14 @@ const nationMapping = {
   WLF: 'Wallis e Futuna',
   WSM: 'Samoa',
   YEM: 'Yemen',
+  XKX: 'Kosovo',
   ZAF: 'Sud Africa',
   ZMB: 'Zambia',
   ZWE: 'Zimbab',
+  'GB-ENG': 'Inghilterra',
+  'GB-WLS': 'Galles',
+  'GB-NIR': 'Nord irlanda',
+  'GB-SCT': 'Scozia',
 };
 
 export const getMappedNation = nationValue => {
@@ -251,12 +257,14 @@ export const getMappedNation = nationValue => {
   Object.entries(nationMapping).forEach(nation => {
     const key = nation[0];
     const value = nation[1];
-    if (value === nationValue) {
+    if (value.indexOf(nationValue) > -1) {
       foundValue = key;
     }
   });
-  if (foundValue) {
+  if (foundValue && foundValue.length === 3) {
     mappedValue = getCountryISO2(foundValue);
+  } else {
+    mappedValue = foundValue;
   }
   return mappedValue;
 };

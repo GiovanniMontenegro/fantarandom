@@ -10,6 +10,7 @@ export interface IPlayer {
   bornYear: string;
   favoriteFoot: string;
   nation: string;
+  urlPlayerImage: string;
 }
 
 export enum PlayerRole {

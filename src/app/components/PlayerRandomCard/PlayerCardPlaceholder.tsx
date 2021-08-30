@@ -17,7 +17,7 @@ export function PlayerCardPlaceholder(props: Props) {
             borderRadius: 20,
           }}
         >
-          <Row justify="center" align="middle" style={{ height: 274 }}>
+          <Row justify="center" align="middle" style={{ height: 500 }}>
             <Col style={{ marginTop: 25, textAlign: 'center' }}>
               <span
                 style={{

@@ -2,37 +2,45 @@ import { Card, Col, Row } from 'antd';
 import { IPlayer } from 'app/pages/Players/interface/player.interface';
 import { getNationsClassname } from 'app/pages/Players/utils/nations';
 import React from 'react';
+import { useEffect } from 'react';
 
 interface Props {
   player: IPlayer;
 }
 
 export function PlayerCard(props: Props) {
+  const [hasImage, setHasImage] = React.useState(false);
+  useEffect(() => {
+    setHasImage(props.player && !!props.player.urlPlayerImage);
+  }, [props.player]);
   return (
-    <Card style={{ background: "url('campoVerde.jpg')", borderRadius: 20 }}>
-      <div style={{ backgroundColor: '#ffffff15' }}>
+    <Card style={{ borderRadius: 20 }}>
+      <div>
         <Row align="middle" justify="center">
-          <Col>
-            <div
-              style={{
-                fontSize: 36,
-                textAlign: 'center',
-                color: '#fbff00',
-              }}
-            >
-              {props.player.name}
-            </div>
+          <Col className="player-card-name">{props.player.name}</Col>
+          <Col xs={24} className="player-card-image-container">
+            {hasImage && (
+              <img
+                className="player-card-image-component"
+                src={props.player.urlPlayerImage}
+                alt={`${props.player.name}`}
+              />
+            )}
           </Col>
         </Row>
-        <Row style={{ marginTop: 15 }}>
+        <Row
+          style={{
+            marginTop: 15,
+            borderRadius: 10,
+          }}
+        >
           <Col xs={12}>
             <div
-              style={{
-                fontSize: 18,
-                fontWeight: 600,
-                textAlign: 'center',
-                color: '#fff',
-              }}
+              className={`${
+                props.player.team.toLowerCase() === 'juventus'
+                  ? 'player-card-scudetto-container-juve'
+                  : 'player-card-scudetto-container'
+              }`}
             >
               <img
                 alt="scudetto_squadra"
@@ -42,65 +50,24 @@ export function PlayerCard(props: Props) {
             </div>
           </Col>
           <Col xs={11} offset={1}>
-            <div
-              style={{
-                fontSize: 18,
-                fontWeight: 600,
-                textAlign: 'center',
-                color: '#fff',
-              }}
-            >
+            <div className="player-card-nation-container">
               <span className={getNationsClassname(props.player.nation)}></span>
             </div>
           </Col>
         </Row>
         <Row style={{ marginTop: 15 }} align="middle" justify="center">
-          <div style={{ fontSize: 18, color: '#fbff00', fontWeight: 600 }}>
-            QUOTAZIONE
-          </div>
+          <div className="player-card-quotation-title">QUOTAZIONE</div>
         </Row>
         <Row style={{ marginTop: 20 }} align="middle" justify="center">
           <Col xs={12}>
-            <div
-              style={{
-                fontSize: 16,
-                textAlign: 'center',
-                fontWeight: 600,
-                color: '#fbff00',
-              }}
-            >
-              ATTUALE
-            </div>
-            <div
-              style={{
-                fontSize: 32,
-                fontWeight: 600,
-                textAlign: 'center',
-                color: '#fff',
-              }}
-            >
+            <div className="player-card-quotation-actual-title">ATTUALE</div>
+            <div className="player-card-quotation-actual-value">
               {props.player.actualQuotation}
             </div>
           </Col>
           <Col xs={11} offset={1}>
-            <div
-              style={{
-                fontSize: 16,
-                textAlign: 'center',
-                fontWeight: 600,
-                color: '#fbff00',
-              }}
-            >
-              INIZIALE
-            </div>
-            <div
-              style={{
-                fontSize: 32,
-                fontWeight: 600,
-                textAlign: 'center',
-                color: '#fff',
-              }}
-            >
+            <div className="player-card-quotation-actual-title">INIZIALE</div>
+            <div className="player-card-quotation-actual-value">
               {props.player.initialQuotation}
             </div>
           </Col>

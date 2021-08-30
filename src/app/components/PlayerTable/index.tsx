@@ -78,12 +78,22 @@ export function PlayerTable(props: Props) {
     },
     render: text => {
       if (dataIndex === 'team') {
+        const styleJuve =
+          text.toLowerCase() === 'juventus'
+            ? {
+                background: '#fff',
+                width: 40,
+                borderRadius: 10,
+              }
+            : {};
         return (
-          <img
-            alt="scudetto_squadra"
-            src={`teams/${text.toLowerCase()}.png`}
-            style={{ height: 40 }}
-          />
+          <div style={styleJuve}>
+            <img
+              alt="scudetto_squadra"
+              src={`teams/${text.toLowerCase()}.png`}
+              style={{ height: 40 }}
+            />
+          </div>
         );
       }
       if (state.searchedColumn === dataIndex) {
@@ -119,18 +129,21 @@ export function PlayerTable(props: Props) {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
+      sorter: (a, b) => a.name.localeCompare(b.name),
       ...getColumnSearchProps('name'),
     },
     {
       title: 'Team',
       dataIndex: 'team',
       key: 'team',
+      sorter: (a, b) => a.team.localeCompare(b.team),
       ...getColumnSearchProps('team'),
     },
     {
       title: 'Nazione',
       dataIndex: 'nation',
       key: 'nation',
+      sorter: (a, b) => a.nation.localeCompare(b.nation),
       render: text => {
         return <span className={getNationsClassnameSmall(text)}></span>;
       },
@@ -139,11 +152,13 @@ export function PlayerTable(props: Props) {
       title: 'Quotazione iniziale',
       dataIndex: 'initialQuotation',
       key: 'initialQuotation',
+      sorter: (a, b) => a.initialQuotation - b.initialQuotation,
     },
     {
       title: 'Quotazione attuale',
       dataIndex: 'actualQuotation',
       key: 'actualQuotation',
+      sorter: (a, b) => a.actualQuotation - b.actualQuotation,
     },
   ];
   return (
@@ -151,7 +166,6 @@ export function PlayerTable(props: Props) {
       rowKey="id"
       dataSource={props.dataSource}
       columns={columns}
-      style={{ fontSize: 52 }}
       size="small"
     />
   );

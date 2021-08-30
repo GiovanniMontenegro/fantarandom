@@ -9,7 +9,11 @@ interface Props {
 export function RemainingPlayerInfo(props: Props) {
   return (
     <Col xs={24}>
-      <Row className="remaining-card" align="middle" justify="center">
+      <Row
+        className="remaining-player-info-card"
+        align="middle"
+        justify="center"
+      >
         <Col xs={12} style={{ fontSize: 24 }}>
           <Row align="middle" justify="center">
             <Col
@@ -18,15 +22,7 @@ export function RemainingPlayerInfo(props: Props) {
           </Row>
         </Col>
 
-        <Col
-          xs={12}
-          style={{
-            fontSize: 36,
-            backgroundColor: '#E27D60',
-            color: '#fff',
-            height: '100%',
-          }}
-        >
+        <Col xs={12} className="remaining-player-info-value-container">
           <Row align="middle" justify="center" style={{ height: '100%' }}>
             <Col>{props.getRemainingPlayerByRole()}</Col>
           </Row>
